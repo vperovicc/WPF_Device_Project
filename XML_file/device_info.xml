@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Device>
+    <Br>4354</Br>
+    <Name>aj gas</Name>
+    <PicturePath>C:\Users\vukas\OneDrive\Радна површина\mouse.png</PicturePath>
+    <RtfPath />
+    <DateAdded>2024-03-24T21:35:15.6306879+01:00</DateAdded>
+  </Device>
+  <Device>
+    <Br>12413</Br>
+    <Name>keyboard</Name>
+    <PicturePath>C:\Users\vukas\OneDrive\Радна површина\keyboard.png</PicturePath>
+    <RtfPath />
+    <DateAdded>2024-03-24T21:28:36.6985863+01:00</DateAdded>
+  </Device>
+  <Device>
+    <Br>34336</Br>
+    <Name>nzmzmmzm</Name>
+    <PicturePath>C:\Users\vukas\OneDrive\Радна површина\trackpad.png</PicturePath>
+    <RtfPath />
+    <DateAdded>2024-03-24T21:28:49.2906534+01:00</DateAdded>
+  </Device>
+  <Device>
+    <Br>2432</Br>
+    <Name>ajmo</Name>
+    <PicturePath>C:\Users\vukas\OneDrive\Радна површина\microphone.png</PicturePath>
+    <RtfPath />
+    <DateAdded>2024-03-24T21:30:09.9549363+01:00</DateAdded>
+  </Device>
+  <Device>
+    <Br>2432</Br>
+    <Name>ajd</Name>
+    <PicturePath>C:\Users\vukas\OneDrive\Радна површина\Logo.png</PicturePath>
+    <RtfPath />
+    <DateAdded>2024-03-24T22:33:18.7819182+01:00</DateAdded>
+  </Device>
+</ArrayOfDevice>

@@ -1,0 +1,56 @@
+﻿<Window x:Class="Sistem_za_upravljanje_sadrzajima.InfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sistem_za_upravljanje_sadrzajima"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Title="ChangeWindow"
+        AllowsTransparency="True" Background="Transparent"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen">
+    <Canvas Height="600" Width="500">
+        <Path x:Name="LoginPath" Fill="#FF2C6FBB" Stroke="Black">
+            <Path.Data>
+                <PathGeometry>
+                    <PathFigure StartPoint="0,0">
+                        <LineSegment Point="0,600"/>
+                        <LineSegment Point="500,600"/>
+                        <LineSegment Point="500,0"/>
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <Grid Width="500" Height="600">
+            <Rectangle Fill="Black" Stroke="Black" Margin="0,0,0,500" Height="100"/>
+            <Label Content="Device" Foreground="White" Background="{x:Null}" FontFamily="Agency FB" FontWeight="Bold" FontSize="30" Margin="210,27,210,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="80"/>
+            <Image x:Name="imgPicture" Width="200" Height="200" Margin="290,165,10,235"/>
+            <Label x:Name="lbName" Content="Device Name" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontWeight="Bold" FontSize="30" Margin="10,105,10,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="480"/>
+            <Label Content="Serial Number :" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontWeight="Bold" FontSize="18" Margin="290,375,102,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="108"/>
+            <RichTextBox Margin="10,165,215,153">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="RichTextBox"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Label x:Name="lbNumber" Content="Number" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontSize="15" Margin="403,379,10,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="87"/>
+            <Label Content="Date Added:" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontWeight="Bold" FontSize="18" Margin="10,452,408,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="82"/>
+            <Button Content="Close" Height="40" Width="115" FontFamily="Agency FB" FontWeight="Bold" FontSize="20" Foreground="White" Background="Black" BorderBrush="{x:Null}" Margin="192,530,192,30" Click="Button_Click" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="20"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="2"
+                            BorderBrush="Black">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Label x:Name="lbDateAdded" Content="Number" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontSize="15" Margin="90,454,215,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="195"/>
+
+        </Grid>
+    </Canvas>
+</Window>

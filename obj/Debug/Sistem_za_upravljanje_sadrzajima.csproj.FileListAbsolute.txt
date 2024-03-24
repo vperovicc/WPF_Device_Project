@@ -1,0 +1,61 @@
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\bin\Debug\Sistem_za_upravljanje_sadrzajima.exe.config
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\bin\Debug\Sistem_za_upravljanje_sadrzajima.exe
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\bin\Debug\Sistem_za_upravljanje_sadrzajima.pdb
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\ChangeWindow.g.cs
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\UseWindow.g.cs
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\MainWindow.g.cs
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\App.g.cs
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima_MarkupCompile.cache
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima_MarkupCompile.lref
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\ChangeWindow.baml
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\UseWindow.baml
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\MainWindow.baml
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.g.resources
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.Properties.Resources.resources
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.csproj.GenerateResource.cache
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.csproj.CoreCompileInputs.cache
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.exe
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.pdb
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.csproj.AssemblyReference.cache
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\InfoWindow.g.cs
+C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\InfoWindow.baml
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\InfoWindow.g.cs
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\UseWindow.g.cs
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\MainWindow.g.cs
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\App.g.cs
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima_MarkupCompile.cache
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima_MarkupCompile.lref
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.csproj.AssemblyReference.cache
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\Sistem_za_upravljanje_sadrzajima.exe.config
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\Sistem_za_upravljanje_sadrzajima.exe
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\Sistem_za_upravljanje_sadrzajima.pdb
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\ja-JP\Xceed.Wpf.AvalonDock.resources.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\nl-BE\Xceed.Wpf.AvalonDock.resources.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\ChangeWindow.g.cs
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\ChangeWindow.baml
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\InfoWindow.baml
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\UseWindow.baml
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\MainWindow.baml
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.g.resources
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.Properties.Resources.resources
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.csproj.GenerateResource.cache
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.csproj.CoreCompileInputs.cache
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.csproj.CopyComplete
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.exe
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.pdb
