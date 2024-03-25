@@ -32,10 +32,15 @@
             <Label x:Name="lblBroj_Copy4" Content="Name" FontFamily="Agency FB" FontSize="25" FontWeight="Bold" Margin="50,178,384,482"/>
             <TextBox x:Name="tbNumber" HorizontalAlignment="Left" Height="40" Margin="201,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontSize="18" FontFamily="Agency FB"/>
             <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="40" Margin="201,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontSize="18" FontFamily="Agency FB"/>
-            <RichTextBox x:Name="rtbText" Margin="50,379,50,71" Background="Black" BorderBrush="{x:Null}" Foreground="White"/>
+            <RichTextBox x:Name="rtbText" Margin="50,379,50,71" Background="Black" BorderBrush="{x:Null}" Foreground="White" TextChanged="rtbText_TextChanged"/>
 
+            <StatusBar Height="20" Width="398" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="51,0,51,71" Background="White">
+                <StatusBarItem>
+                    <TextBlock x:Name="tbWordCounter" Text="Word Count: 0" FontFamily="Agency FB" FontWeight="Bold" />
+                </StatusBarItem>
+            </StatusBar>
             <ToolBar Margin="47,351,50,321">
-                <ComboBox x:Name="FontComboBox" Width="100" SelectionChanged="FontComboBox_SelectionChanged"/>
+                <ComboBox x:Name="FontComboBox" Width="150" SelectionChanged="FontComboBox_SelectionChanged"/>
                 <ToggleButton x:Name="BoldToggleButton" Click="BoldToggleButton_Click">
                     <TextBlock FontWeight="Bold" Width="15" Height="15">B</TextBlock>
                 </ToggleButton>
@@ -46,11 +51,11 @@
                     <TextBlock TextDecorations="Underline" Width="15" Height="15" >U</TextBlock>
                 </ToggleButton>
 
-                <!--<xctk:ColorPicker x:Name="Color_picker_Editor" Width="45" ToolTip="Color picker" SelectedColorChanged="ColorPicker_SelectedColorChanged"/>-->
+                <extToolkit:ColorPicker x:Name="cpColor" Width="80" ToolTip="Color picker" SelectedColorChanged="cpColor_SelectedColorChanged"/>
 
                 <Rectangle Width="15" Height="15" Fill="{Binding ElementName=FontColorPicker, Path=SelectedColor}"/>
 
-                <ComboBox x:Name="cbFontSize" Width="50" SelectedIndex="0" SelectionChanged="FontSizeComboBox_SelectionChanged"/>
+                <ComboBox x:Name="cbFontSize" Width="50" SelectedIndex="0" SelectionChanged="FontSizeComboBox_SelectionChanged" Margin="0,2,0,1.2"/>
             </ToolBar>
 
             <Button x:Name="btnPicture" Content="Browse Picture" Margin="201,247,197,412" FontFamily="Agency FB" Foreground="White" BorderBrush="{x:Null}" Background="Black" FontSize="18" Click="btnPicture_Click" Cursor="Hand">

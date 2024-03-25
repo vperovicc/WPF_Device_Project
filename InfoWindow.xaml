@@ -28,7 +28,7 @@
             <Image x:Name="imgPicture" Width="200" Height="200" Margin="290,165,10,235"/>
             <Label x:Name="lbName" Content="Device Name" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontWeight="Bold" FontSize="30" Margin="10,105,10,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="480"/>
             <Label Content="Serial Number :" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontWeight="Bold" FontSize="18" Margin="290,375,102,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="108"/>
-            <RichTextBox Margin="10,165,215,153">
+            <RichTextBox x:Name="rtbText" Margin="10,165,215,193" Foreground="White" Background="Black">
                 <FlowDocument>
                     <Paragraph>
                         <Run Text="RichTextBox"/>
@@ -36,7 +36,7 @@
                 </FlowDocument>
             </RichTextBox>
             <Label x:Name="lbNumber" Content="Number" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontSize="15" Margin="403,379,10,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="87"/>
-            <Label Content="Date Added:" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontWeight="Bold" FontSize="18" Margin="10,452,408,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="82"/>
+            <Label Content="Date Added:" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontWeight="Bold" FontSize="18" Margin="10,412,408,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="82"/>
             <Button Content="Close" Height="40" Width="115" FontFamily="Agency FB" FontWeight="Bold" FontSize="20" Foreground="White" Background="Black" BorderBrush="{x:Null}" Margin="192,530,192,30" Click="Button_Click" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
@@ -49,7 +49,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Label x:Name="lbDateAdded" Content="Number" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontSize="15" Margin="90,454,215,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="195"/>
+            <Label x:Name="lbDateAdded" Content="Number" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontSize="15" Margin="90,414,215,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="195"/>
 
         </Grid>
     </Canvas>

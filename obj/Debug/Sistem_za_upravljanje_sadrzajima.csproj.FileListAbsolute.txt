@@ -19,13 +19,6 @@ C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrza
 C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.csproj.AssemblyReference.cache
 C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\InfoWindow.g.cs
 C:\Users\vukas\OneDrive\Радна површина\Sistem_za_upravljanje_sadrzajima\obj\Debug\InfoWindow.baml
-C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\InfoWindow.g.cs
-C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\UseWindow.g.cs
-C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\MainWindow.g.cs
-C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\App.g.cs
-C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima_MarkupCompile.cache
-C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima_MarkupCompile.lref
-C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.csproj.AssemblyReference.cache
 C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\Sistem_za_upravljanje_sadrzajima.exe.config
 C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\Sistem_za_upravljanje_sadrzajima.exe
 C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\Sistem_za_upravljanje_sadrzajima.pdb
@@ -48,6 +41,12 @@ C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\ru\Xceed.Wpf.AvalonDock.r
 C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\ChangeWindow.g.cs
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\InfoWindow.g.cs
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\UseWindow.g.cs
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\MainWindow.g.cs
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\App.g.cs
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima_MarkupCompile.cache
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima_MarkupCompile.lref
 C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\ChangeWindow.baml
 C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\InfoWindow.baml
 C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\UseWindow.baml

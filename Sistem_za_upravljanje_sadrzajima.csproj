@@ -131,6 +131,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="rtfs\ajmoo rberrerereRTF.rtf" />
+    <None Include="rtfs\moglo bi raditiRTF.rtf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -154,8 +156,6 @@
   <ItemGroup>
     <Resource Include="pictures\joystick.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="rtfs\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,11 +38,30 @@ namespace Sistem_za_upravljanje_sadrzajima
 
             string absolutePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, device.PicturePath);
             imgPicture.Source = new BitmapImage(new Uri(absolutePath));
+
+            if (!string.IsNullOrEmpty(device.RtfPath))
+            {
+                string rtfPath = device.RtfPath;
+                if (File.Exists(rtfPath))
+                {
+                    TextRange textRange = new TextRange(rtbText.Document.ContentStart, rtbText.Document.ContentEnd);
+
+                    using (FileStream fs = new FileStream(rtfPath, FileMode.Open))
+                    {
+                        textRange.Load(fs, DataFormats.Rtf);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The RTF file does not exist.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
+            return;
         }
     }
 }

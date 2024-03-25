@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Sistem_za_upravljanje_sadrzajima
 {
@@ -28,10 +30,8 @@ namespace Sistem_za_upravljanje_sadrzajima
 
         private Device passedDevice;
 
-        public ChangeWindow(UseWindow useWindow)
+        public void loadToolbar()
         {
-            InitializeComponent();
-            this.useWindow = useWindow;
             List<FontFamily> fontFamilies = Fonts.SystemFontFamilies.ToList();
 
             // Populate the ComboBox with font family names
@@ -48,21 +48,26 @@ namespace Sistem_za_upravljanje_sadrzajima
             {
                 fontSizes.Add(fontSize);
             }
-
-            // Set the font sizes collection as the ComboBox's ItemsSource
             cbFontSize.ItemsSource = fontSizes;
+        }
 
+        public ChangeWindow(UseWindow useWindow)
+        {
+            InitializeComponent();
+            this.useWindow = useWindow;
+            loadToolbar();
         }
         
         public ChangeWindow()
         {
             InitializeComponent();
+            loadToolbar();
         }
 
         public ChangeWindow(Device device, bool isEditing, UseWindow useWind)
         {
             InitializeComponent();
-
+            loadToolbar();
             useWindPom = useWind;
 
             passedDevice = device;
@@ -74,6 +79,19 @@ namespace Sistem_za_upravljanje_sadrzajima
                 picPath = device.PicturePath;
                 string absolutePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, device.PicturePath);
                 imgPicture.Source = new BitmapImage(new Uri(absolutePath));
+                if (File.Exists(device.RtfPath))
+                {
+                    TextRange textRange = new TextRange(rtbText.Document.ContentStart, rtbText.Document.ContentEnd);
+
+                    using (FileStream fs = new FileStream(device.RtfPath, FileMode.Open))
+                    {
+                        textRange.Load(fs, DataFormats.Rtf);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The RTF file does not exist.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
             else
             {
@@ -125,7 +143,7 @@ namespace Sistem_za_upravljanje_sadrzajima
                         passedDevice.Name = tbName.Text;
                         passedDevice.DateAdded = DateTime.Now;
                         passedDevice.PicturePath = picPath;
-                        passedDevice.RtfPath = "";
+                        
                         useWindPom.RefreshDataGrid();
                         MessageBox.Show("Success!", "Information!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
@@ -135,7 +153,9 @@ namespace Sistem_za_upravljanje_sadrzajima
                         newDevice.Name = tbName.Text;
                         newDevice.DateAdded = DateTime.Now;
                         newDevice.PicturePath = picPath;
-                        newDevice.RtfPath = "";
+                        string nameOfRtf = tbName.Text + "RTF";
+                        rtfCreation(nameOfRtf, rtbText);
+                        newDevice.RtfPath = "../../rtfs/"+ nameOfRtf+".rtf";
                         useWindow.devices.Add(newDevice);
                         MessageBox.Show("Success!", "Information!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
@@ -164,7 +184,6 @@ namespace Sistem_za_upravljanje_sadrzajima
 
         private bool security()
         {
-
             if (tbNumber.Text == string.Empty)
             {
                 MessageBox.Show("No input for number.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -182,7 +201,6 @@ namespace Sistem_za_upravljanje_sadrzajima
                 MessageBox.Show("You did not pick the picture.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
-
             return true;
         }
 
@@ -244,5 +262,66 @@ namespace Sistem_za_upravljanje_sadrzajima
                 }
             }
         }
+
+        private void cpColor_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        {
+            if (rtbText != null && cpColor.SelectedColor.HasValue)
+            {
+                SolidColorBrush newBrush = new SolidColorBrush(cpColor.SelectedColor.Value);
+                rtbText.Foreground = newBrush;
+            }
+        }
+
+        private void updateWordCounter(string text)
+        {
+            string pattern = @"\b\w+\b";
+            MatchCollection matches = Regex.Matches(text, pattern);
+
+            tbWordCounter.Text = "Word Count: " + matches.Count;
+        }
+        private void rtbText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string text = new TextRange(rtbText.Document.ContentStart, rtbText.Document.ContentEnd).Text;
+
+            updateWordCounter(text);
+        }
+
+        public void rtfCreation(string name, RichTextBox rtb)
+        {
+            try
+            {
+                MemoryStream stream = new MemoryStream();
+                TextRange textRange = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
+
+                if (!textRange.IsEmpty)
+                {
+                    textRange.Save(stream, DataFormats.Rtf);
+                    stream.Position = 0;
+
+                    StreamReader reader = new StreamReader(stream);
+                    string rtfContent = reader.ReadToEnd();
+                    reader.Close();
+                    stream.Close();
+                    string directoryPath = "../../rtfs/";
+
+                    if (!Directory.Exists(directoryPath))
+                    {
+                        Directory.CreateDirectory(directoryPath);
+                    }
+
+                    string filePath = System.IO.Path.Combine(directoryPath, name + ".rtf");
+                    File.WriteAllText(filePath, rtfContent);
+                }
+                else
+                {
+                    MessageBox.Show("The RichTextBox is empty.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while saving the RTF content: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
     }
 }
