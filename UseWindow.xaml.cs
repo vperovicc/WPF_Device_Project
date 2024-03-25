@@ -30,7 +30,6 @@ namespace Sistem_za_upravljanje_sadrzajima
         public UseWindow()
         {
             InitializeComponent();
-
         }
         public UseWindow(User user)
         {

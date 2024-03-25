@@ -37,6 +37,8 @@ namespace Sistem_za_upravljanje_sadrzajima
         public MainWindow(ObservableCollection<Device> devs)
         {
             InitializeComponent();
+            XMLRead reader = new XMLRead();
+            users = reader.readUser(@"../../XML_file/user_info.xml");
             passedDevices = devs;
         }
 
@@ -116,6 +118,8 @@ namespace Sistem_za_upravljanje_sadrzajima
 
                 tbUsername.Clear();
                 pbPassword.Clear();
+                Close();
+                return;
             }
             catch(Exception ex)
             {

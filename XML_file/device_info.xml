@@ -4,14 +4,42 @@
     <Br>1</Br>
     <Name>Mouse</Name>
     <PicturePath>C:\Users\vukas\OneDrive\Радна површина\mouse.png</PicturePath>
-    <RtfPath>../../rtfs/MouseRTF.rtf</RtfPath>
-    <DateAdded>2024-03-25T13:12:57.3165784+01:00</DateAdded>
+    <RtfPath>../../rtfs/MouseRTF.rtf.rtf</RtfPath>
+    <DateAdded>2024-03-25T23:41:37.4767193+01:00</DateAdded>
   </Device>
   <Device>
     <Br>2</Br>
-    <Name>Keyboard</Name>
-    <PicturePath>C:\Users\vukas\OneDrive\Радна површина\keyboard.png</PicturePath>
-    <RtfPath>../../rtfs/KeyboardRTF.rtf</RtfPath>
-    <DateAdded>2024-03-25T13:16:22.9561173+01:00</DateAdded>
+    <Name>Microphone</Name>
+    <PicturePath>C:\Users\vukas\OneDrive\Радна површина\microphone.png</PicturePath>
+    <RtfPath>../../rtfs/MicrophoneRTF.rtf</RtfPath>
+    <DateAdded>2024-03-25T22:24:42.3234469+01:00</DateAdded>
+  </Device>
+  <Device>
+    <Br>2234</Br>
+    <Name>ajmo</Name>
+    <PicturePath>C:\Users\vukas\OneDrive\Радна површина\scaner.png</PicturePath>
+    <RtfPath>../../rtfs/ajmoRTF.rtf</RtfPath>
+    <DateAdded>2024-03-25T22:44:07.4159566+01:00</DateAdded>
+  </Device>
+  <Device>
+    <Br>344325</Br>
+    <Name>nzm</Name>
+    <PicturePath>C:\Users\vukas\OneDrive\Радна површина\Logo.png</PicturePath>
+    <RtfPath>../../rtfs/nzmRTF.rtf</RtfPath>
+    <DateAdded>2024-03-25T23:07:19.40623+01:00</DateAdded>
+  </Device>
+  <Device>
+    <Br>12452253</Br>
+    <Name>jksdb</Name>
+    <PicturePath>C:\Users\vukas\OneDrive\Радна површина\artworks-iLUFQ7GTzbFbeN2V-Eex02Q-t500x500.jpg</PicturePath>
+    <RtfPath>../../rtfs/jksdbRTF.rtf</RtfPath>
+    <DateAdded>2024-03-25T23:58:48.5572978+01:00</DateAdded>
+  </Device>
+  <Device>
+    <Br>234345253</Br>
+    <Name>sogsn</Name>
+    <PicturePath>C:\Users\vukas\OneDrive\Радна површина\trackpad.png</PicturePath>
+    <RtfPath>../../rtfs/sogsnRTF.rtf</RtfPath>
+    <DateAdded>2024-03-25T23:59:58.4496421+01:00</DateAdded>
   </Device>
 </ArrayOfDevice>

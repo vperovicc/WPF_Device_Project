@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:fa5="http://schemas.fontawesome.com/icons/"
         xmlns:local="clr-namespace:Sistem_za_upravljanje_sadrzajima"
         mc:Ignorable="d"
         WindowStyle="None"
@@ -13,7 +14,7 @@
         WindowStartupLocation="CenterScreen">
 
     <Canvas Height="700" Width="500">
-        <Path x:Name="LoginPath" Fill="#FF2C6FBB" Stroke="Black" MouseLeftButtonDown="LoginPath_MouseLeftButtonDown" >
+        <Path x:Name="LoginPath" Fill="#FF297DDD" Stroke="Black" MouseLeftButtonDown="LoginPath_MouseLeftButtonDown" >
             <Path.Data>
                 <PathGeometry>
                     <PathFigure StartPoint="0,0">
@@ -32,33 +33,34 @@
             <Label x:Name="lblBroj_Copy4" Content="Name" FontFamily="Agency FB" FontSize="25" FontWeight="Bold" Margin="50,178,384,482"/>
             <TextBox x:Name="tbNumber" HorizontalAlignment="Left" Height="40" Margin="201,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontSize="18" FontFamily="Agency FB"/>
             <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="40" Margin="201,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" FontSize="18" FontFamily="Agency FB"/>
-            <RichTextBox x:Name="rtbText" Margin="50,379,50,71" Background="Black" BorderBrush="{x:Null}" Foreground="White" TextChanged="rtbText_TextChanged"/>
+            <RichTextBox x:Name="rtbText" Margin="50,379,50,71" Background="Black" BorderBrush="{x:Null}" Foreground="White" TextChanged="rtbText_TextChanged" SelectionChanged="rtbText_SelectionChanged"/>
 
             <StatusBar Height="20" Width="398" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="51,0,51,71" Background="White">
                 <StatusBarItem>
                     <TextBlock x:Name="tbWordCounter" Text="Word Count: 0" FontFamily="Agency FB" FontWeight="Bold" />
                 </StatusBarItem>
             </StatusBar>
-            <ToolBar Margin="47,351,50,321">
+            <ToolBar Margin="47,353,51,319">
                 <ComboBox x:Name="FontComboBox" Width="150" SelectionChanged="FontComboBox_SelectionChanged"/>
                 <ToggleButton x:Name="BoldToggleButton" Click="BoldToggleButton_Click">
-                    <TextBlock FontWeight="Bold" Width="15" Height="15">B</TextBlock>
+                    <fa5:ImageAwesome Icon="Solid_Bold" Foreground="Black" Width="15" Height="15"/>
                 </ToggleButton>
                 <ToggleButton x:Name="ItalicToggleButton" Click="ItalicToggleButton_Click">
-                    <TextBlock FontStyle="Italic" Width="15" Height="15">I</TextBlock>
+                    <fa5:ImageAwesome Icon="Solid_Italic" Foreground="Black" Width="15" Height="15"/>
                 </ToggleButton>
                 <ToggleButton x:Name="UnderlineToggleButton" Click="UnderlineToggleButton_Click">
-                    <TextBlock TextDecorations="Underline" Width="15" Height="15" >U</TextBlock>
+                    <fa5:ImageAwesome Icon="Solid_Underline" Foreground="Black" Width="15" Height="15"/>
+                </ToggleButton>
+
+                <ToggleButton x:Name="ToggleButton_Italic" Command="EditingCommands.ToggleItalic">
                 </ToggleButton>
 
                 <extToolkit:ColorPicker x:Name="cpColor" Width="80" ToolTip="Color picker" SelectedColorChanged="cpColor_SelectedColorChanged"/>
 
-                <Rectangle Width="15" Height="15" Fill="{Binding ElementName=FontColorPicker, Path=SelectedColor}"/>
-
                 <ComboBox x:Name="cbFontSize" Width="50" SelectedIndex="0" SelectionChanged="FontSizeComboBox_SelectionChanged" Margin="0,2,0,1.2"/>
             </ToolBar>
 
-            <Button x:Name="btnPicture" Content="Browse Picture" Margin="201,247,197,412" FontFamily="Agency FB" Foreground="White" BorderBrush="{x:Null}" Background="Black" FontSize="18" Click="btnPicture_Click" Cursor="Hand">
+            <Button x:Name="btnPicture" Content="Browse Picture" Margin="201,247,197,412" FontFamily="Agency FB" Foreground="White" BorderBrush="{x:Null}" Background="Black" FontSize="16" Click="btnPicture_Click" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border CornerRadius="20
@@ -98,6 +100,7 @@
             <Rectangle Fill="#000" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="500"/>
             <Image x:Name="imgPicture" Margin="393,238,50,405"/>
             <Label x:Name="lblBroj_Copy1" Content="Image&#xD;&#xA;Preview" FontFamily="Agency FB" FontSize="16" Margin="337,244,112,405"/>
+            <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="logIn.png"/>
 
 
         </Grid>

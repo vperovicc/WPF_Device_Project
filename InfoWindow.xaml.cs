@@ -63,5 +63,10 @@ namespace Sistem_za_upravljanje_sadrzajima
             Close();
             return;
         }
+
+        private void rtbText_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

@@ -11,7 +11,7 @@
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen">
     <Canvas Height="600" Width="500">
-        <Path x:Name="LoginPath" Fill="#FF2C6FBB" Stroke="Black">
+        <Path x:Name="LoginPath" Fill="#FF297DDD" Stroke="Black">
             <Path.Data>
                 <PathGeometry>
                     <PathFigure StartPoint="0,0">
@@ -28,7 +28,7 @@
             <Image x:Name="imgPicture" Width="200" Height="200" Margin="290,165,10,235"/>
             <Label x:Name="lbName" Content="Device Name" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontWeight="Bold" FontSize="30" Margin="10,105,10,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="480"/>
             <Label Content="Serial Number :" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontWeight="Bold" FontSize="18" Margin="290,375,102,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="108"/>
-            <RichTextBox x:Name="rtbText" Margin="10,165,215,193" Foreground="White" Background="Black">
+            <RichTextBox x:Name="rtbText" Margin="10,165,215,193" Foreground="White" Background="Black" PreviewMouseDown="rtbText_PreviewMouseDown" >
                 <FlowDocument>
                     <Paragraph>
                         <Run Text="RichTextBox"/>
@@ -50,6 +50,7 @@
                 </Button.Template>
             </Button>
             <Label x:Name="lbDateAdded" Content="Number" Foreground="Black" Background="{x:Null}" FontFamily="Agency FB" FontSize="15" Margin="90,414,215,0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="195"/>
+            <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Source="logIn.png"/>
 
         </Grid>
     </Canvas>

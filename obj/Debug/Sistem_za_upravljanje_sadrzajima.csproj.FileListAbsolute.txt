@@ -58,3 +58,8 @@ C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sad
 C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.csproj.CopyComplete
 C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.exe
 C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.pdb
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\obj\Debug\Sistem_za_upravljanje_sadrzajima.csproj.AssemblyReference.cache
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\FontAwesome5.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\FontAwesome5.Net.dll
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\FontAwesome5.xml
+C:\Projekat\Sistem_za_upravljanje_sadrzajima\bin\Debug\FontAwesome5.Net.xml

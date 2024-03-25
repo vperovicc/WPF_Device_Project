@@ -12,27 +12,27 @@
         WindowStartupLocation="CenterScreen"
         >
 
-    <Canvas Height="270" Width="375">
-        <Path x:Name="LoginPath" Fill="#FF2C6FBB" Stroke="Black" MouseLeftButtonDown="LoginPath_MouseLeftButtonDown">
+    <Canvas Height="400" Width="600">
+        <Path x:Name="LoginPath" Fill="#FF297DDD" Stroke="Black" MouseLeftButtonDown="LoginPath_MouseLeftButtonDown">
             <Path.Data>
                 <PathGeometry>
                     <PathFigure StartPoint="0,0">
-                        <LineSegment Point="0,270"/>
-                        <LineSegment Point="375,270"/>
-                        <LineSegment Point="375,0"/>
+                        <LineSegment Point="0,400"/>
+                        <LineSegment Point="600,400"/>
+                        <LineSegment Point="600,0"/>
                     </PathFigure>
                 </PathGeometry>
             </Path.Data>
         </Path>
 
 
-        <Grid Height="270" Width="375" >
-            <Label x:Name="lblUsername" Content="Username" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="76,79,0,0" Height="26" Width="96" FontFamily="Agency FB" FontSize="16"/>
-            <Label x:Name="lblPassword" Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="76,128,0,0" Height="26" Width="59" FontFamily="Agency FB" FontSize="16" RenderTransformOrigin="0.629,0.6"/>
-            <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Height="23" Margin="76,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" BorderBrush="Black" Background="#FFB7D7FF" BorderThickness="0" SnapsToDevicePixels="True" ClipToBounds="True" FontFamily="Agency FB" FontSize="16">
+        <Grid Height="400" Width="600" >
+            <Label x:Name="lblUsername" Content="Username" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="296,141,0,0" Height="31" Width="96" FontFamily="Agency FB" FontSize="20"/>
+            <Label x:Name="lblPassword" Content="Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="296,209,0,0" Height="32" Width="81" FontFamily="Agency FB" FontSize="20" RenderTransformOrigin="0.629,0.6"/>
+            <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Height="23" Margin="296,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" BorderBrush="Black" Background="#FFB7D7FF" BorderThickness="0" SnapsToDevicePixels="True" ClipToBounds="True" FontFamily="Agency FB" FontSize="16">
             </TextBox>
 
-            <Button x:Name="btnLogIn" Content="Log in" HorizontalAlignment="Left" Margin="203,197,0,0" VerticalAlignment="Top" Width="86" Height="23" Click="btnLogIn_Click" Background="Black" Foreground="White" FontFamily="Agency FB" FontSize="16" BorderBrush="Black" Cursor="Hand" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
+            <Button x:Name="btnLogIn" Content="Log in" HorizontalAlignment="Left" Margin="423,294,0,0" VerticalAlignment="Top" Width="86" Height="23" Click="btnLogIn_Click" Background="Black" Foreground="White" FontFamily="Agency FB" FontSize="16" BorderBrush="Black" Cursor="Hand" RenderTransformOrigin="0.5,0.5" FontWeight="Bold">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border CornerRadius="12"
@@ -44,7 +44,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="76,197,0,0" VerticalAlignment="Top" Width="86" Height="23" Click="btnExit_Click" Background="Black" BorderBrush="Black" FontFamily="Agency FB" FontSize="15" BorderThickness="2" Foreground="White" Cursor="Hand" FontWeight="Bold">
+            <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="296,294,0,0" VerticalAlignment="Top" Width="86" Height="23" Click="btnExit_Click" Background="Black" BorderBrush="Black" FontFamily="Agency FB" FontSize="15" BorderThickness="2" Foreground="White" Cursor="Hand" FontWeight="Bold">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border CornerRadius="12"
@@ -58,9 +58,10 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <PasswordBox x:Name="pbPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Width="213" Margin="76,154,0,0" Height="23" PasswordChar="*" BorderBrush="Black" Background="#FFB7D7FF" SelectionOpacity="1" Cursor="Hand" BorderThickness="0" FontFamily="Agency FB" FontSize="16"/>
-            <Rectangle Fill="#000" Height="66" Stroke="Black" Width="375" VerticalAlignment="Top"/>
-            <Label Content="Log In" Canvas.Left="154" Canvas.Top="22" Foreground="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="157,12,157,217" FontWeight="Bold" FontFamily="Agency FB" FontSize="25" Height="41"/>
+            <PasswordBox x:Name="pbPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Width="213" Margin="296,241,0,0" Height="23" PasswordChar="*" BorderBrush="Black" Background="#FFB7D7FF" SelectionOpacity="1" Cursor="Hand" BorderThickness="0" FontFamily="Agency FB" FontSize="16"/>
+            <Rectangle Fill="#000" Height="66" Stroke="Black" VerticalAlignment="Top"/>
+            <Label Content="Log In" Canvas.Left="154" Canvas.Top="22" Foreground="#FFFAFAFA" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="270,11,258,342" FontWeight="Bold" FontFamily="Agency FB" FontSize="30" Height="47" Width="72"/>
+            <Image Source="logIn.png" Margin="0,86,304,28"/>
         </Grid>
 
     </Canvas>

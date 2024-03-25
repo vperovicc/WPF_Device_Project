@@ -60,23 +60,32 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <DataGrid x:Name="dgContent" Grid.Column="0" HorizontalAlignment="Left" Height="364" Margin="10,73,0,0" VerticalAlignment="Top" Width="880" AutoGenerateColumns="False" ItemsSource="{Binding}" Background="Black" BorderBrush="{x:Null}" Foreground="Black">
+            <DataGrid x:Name="dgContent" Grid.Column="0" HorizontalAlignment="Left" Height="364" BorderBrush="{x:Null}" Margin="10,73,0,0" VerticalAlignment="Top" Width="880" AutoGenerateColumns="False" ItemsSource="{Binding}" Background="Black" Foreground="Black" GridLinesVisibility="Horizontal" SelectionUnit="Cell" SelectionMode="Single" HorizontalGridLinesBrush="White" CanUserAddRows="False">
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="Black"/>
+                        <Setter Property="Foreground" Value="White"/>
+                    </Style>
+                </DataGrid.RowStyle>
+
+
+
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="Check" Width="100">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" Checked="CheckBox_Checked"/>
+                                <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}" Checked="CheckBox_Checked" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Name" Width="250">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock>
-                        <Hyperlink Click="Hyperlink_Click">
-                            <TextBlock Text="{Binding Name}"/>
-                        </Hyperlink>
-                    </TextBlock>
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" FontFamily="Agency FB">
+                                    <Hyperlink Click="Hyperlink_Click" >
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </Hyperlink>
+                                </TextBlock>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -87,11 +96,34 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Date Added" Binding="{Binding DateAdded}" Width="200"/>
+                    <DataGridTextColumn Header="Date Added" Binding="{Binding DateAdded}" Width="200">
+                        <DataGridTextColumn.ElementStyle>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="FontSize" Value="18"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="FontFamily" Value="Agency FB"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
                 </DataGrid.Columns>
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="FontFamily" Value="Agency FB"/>
+                        <Setter Property="FontSize" Value="18"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="Background" Value="Black"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
             </DataGrid>
+
             <Rectangle Fill="#000" Stroke="Black" Margin="0,0,0,440"/>
             <Label Content="Overview" HorizontalAlignment="Center" Margin="405,10,405,0" VerticalAlignment="Top" Foreground="White" FontFamily="Agency FB" FontWeight="Bold" FontSize="25"/>
+            <Image HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="60" Source="logIn.png"/>
         </Grid>
     </Canvas>
 </Window>

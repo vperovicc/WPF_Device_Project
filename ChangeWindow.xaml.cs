@@ -27,26 +27,18 @@ namespace Sistem_za_upravljanje_sadrzajima
         private UseWindow useWindow;
         private UseWindow useWindPom;
         string picPath;
+        string passedDeviceRtfPath;
 
         private Device passedDevice;
 
         public void loadToolbar()
         {
-            List<FontFamily> fontFamilies = Fonts.SystemFontFamilies.ToList();
+            FontComboBox.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
 
-            // Populate the ComboBox with font family names
-            foreach (var fontFamily in fontFamilies)
+            List<double> fontSizes = new List<double>();
+            for (double i = 8; i <= 72; i+=2)
             {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Content = fontFamily.ToString();
-                item.FontFamily = fontFamily;
-                FontComboBox.Items.Add(item);
-            }
-
-            var fontSizes = new ObservableCollection<double>();
-            for (double fontSize = 8; fontSize <= 72; fontSize += 2)
-            {
-                fontSizes.Add(fontSize);
+                fontSizes.Add(i);
             }
             cbFontSize.ItemsSource = fontSizes;
         }
@@ -143,9 +135,11 @@ namespace Sistem_za_upravljanje_sadrzajima
                         passedDevice.Name = tbName.Text;
                         passedDevice.DateAdded = DateTime.Now;
                         passedDevice.PicturePath = picPath;
-                        
+                        passedDeviceRtfPath = passedDevice.RtfPath;
+                        passedDevice.RtfPath =  updateRtfContent(passedDeviceRtfPath);
                         useWindPom.RefreshDataGrid();
                         MessageBox.Show("Success!", "Information!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Close();
                     }
                     else
                     {
@@ -158,6 +152,7 @@ namespace Sistem_za_upravljanje_sadrzajima
                         newDevice.RtfPath = "../../rtfs/"+ nameOfRtf+".rtf";
                         useWindow.devices.Add(newDevice);
                         MessageBox.Show("Success!", "Information!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Close();
                     }
                 }
                 picPath = "";
@@ -169,7 +164,6 @@ namespace Sistem_za_upravljanje_sadrzajima
             finally
             {
                 ResetFields();
-                Close();
             }
         }
 
@@ -201,18 +195,17 @@ namespace Sistem_za_upravljanje_sadrzajima
                 MessageBox.Show("You did not pick the picture.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
+
+            TextRange textRange = new TextRange(rtbText.Document.ContentStart, rtbText.Document.ContentEnd);
+
+            if(textRange.Text=="\r\n")
+            {
+                MessageBox.Show("No input for text.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
             return true;
         }
 
-        private void FontComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (FontComboBox.SelectedItem != null)
-            {
-                var selectedItem = (ComboBoxItem)FontComboBox.SelectedItem;
-                FontFamily fontFamily = selectedItem.FontFamily;
-                rtbText.FontFamily = fontFamily;
-            }
-        }
 
         private void BoldToggleButton_Click(object sender, RoutedEventArgs e)
         {
@@ -250,25 +243,31 @@ namespace Sistem_za_upravljanje_sadrzajima
             }
         }
 
+        private void FontComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FontComboBox.SelectedItem != null && !rtbText.Selection.IsEmpty)
+            {
+                rtbText.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, FontComboBox.SelectedItem);
+            }
+        }
+
         private void FontSizeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cbFontSize.SelectedItem != null)
+            if (cbFontSize.SelectedItem != null && !rtbText.Selection.IsEmpty)
             {
-                double selectedFontSize = (double)cbFontSize.SelectedItem;
-
-                if (rtbText != null)
-                {
-                    rtbText.FontSize = selectedFontSize;
-                }
+                rtbText.Selection.ApplyPropertyValue(Inline.FontSizeProperty, cbFontSize.SelectedItem);
             }
         }
 
         private void cpColor_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
         {
-            if (rtbText != null && cpColor.SelectedColor.HasValue)
+            if (cpColor.SelectedColor.HasValue)
             {
-                SolidColorBrush newBrush = new SolidColorBrush(cpColor.SelectedColor.Value);
-                rtbText.Foreground = newBrush;
+                Color selectedColor = cpColor.SelectedColor.Value;
+
+                SolidColorBrush newBrush = new SolidColorBrush(selectedColor);
+
+                rtbText.Selection.ApplyPropertyValue(TextElement.ForegroundProperty, newBrush);
             }
         }
 
@@ -282,7 +281,6 @@ namespace Sistem_za_upravljanje_sadrzajima
         private void rtbText_TextChanged(object sender, TextChangedEventArgs e)
         {
             string text = new TextRange(rtbText.Document.ContentStart, rtbText.Document.ContentEnd).Text;
-
             updateWordCounter(text);
         }
 
@@ -323,5 +321,40 @@ namespace Sistem_za_upravljanje_sadrzajima
             }
         }
 
+        private string updateRtfContent(string rtfFilePath)
+        {
+            if (File.Exists(rtfFilePath))
+            {
+                using (FileStream fs = new FileStream(rtfFilePath, FileMode.Create))
+                {
+                    TextRange range = new TextRange(rtbText.Document.ContentStart, rtbText.Document.ContentEnd);
+                    range.Save(fs, DataFormats.Rtf);
+                }
+            }
+            return rtfFilePath;
+        }
+
+        private void rtbText_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+            object fontWeight = rtbText.Selection.GetPropertyValue(Inline.FontWeightProperty);
+            object fontStyle = rtbText.Selection.GetPropertyValue(Inline.FontStyleProperty);
+            object textDecoration = rtbText.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
+            object fontFamily = rtbText.Selection.GetPropertyValue(Inline.FontFamilyProperty);
+            object fontSize = rtbText.Selection.GetPropertyValue(Inline.FontSizeProperty);
+            object textColor = rtbText.Selection.GetPropertyValue(Inline.ForegroundProperty);
+
+            BoldToggleButton.IsChecked = (fontWeight != DependencyProperty.UnsetValue) && (fontWeight.Equals(FontWeights.Bold));
+            ItalicToggleButton.IsChecked = (fontStyle != DependencyProperty.UnsetValue) && (fontStyle.Equals(FontStyles.Italic));
+            UnderlineToggleButton.IsChecked = (textDecoration != DependencyProperty.UnsetValue) && (textDecoration.Equals(TextDecorations.Underline));
+            FontComboBox.SelectedItem = fontFamily;
+            cbFontSize.SelectedItem = fontSize;
+            if (textColor is SolidColorBrush)
+            {
+                SolidColorBrush brush = (SolidColorBrush)textColor;
+                Color color = brush.Color;
+                cpColor.SelectedColor = color;
+            }
+        }
     }
 }
