@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace Sistem_za_upravljanje_sadrzajima
 {
@@ -61,6 +63,19 @@ namespace Sistem_za_upravljanje_sadrzajima
         {
             MainWindow passMain = new MainWindow(devices);
             passMain.Show();
+
+            try
+            {
+                var serializer = new XmlSerializer(devices.GetType());
+                using (var writer = new StreamWriter(@"../../XML_file/device_info.xml"))
+                {
+                    serializer.Serialize(writer, devices);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error while inserting into XML file.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             Close();
         }
 
@@ -99,7 +114,15 @@ namespace Sistem_za_upravljanje_sadrzajima
                 {
                     devices.Remove(item);
                 }
+
+                if (File.Exists(item.RtfPath))
+                {
+                    MessageBox.Show(item.RtfPath);
+                    File.Delete(item.RtfPath);
+                }
             }
+
+
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)

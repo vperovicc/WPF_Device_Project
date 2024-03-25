@@ -44,19 +44,6 @@ namespace Sistem_za_upravljanje_sadrzajima
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                var serializer = new XmlSerializer(passedDevices.GetType());
-                using(var writer = new StreamWriter(@"../../XML_file/device_info.xml"))
-                {
-                    serializer.Serialize(writer, passedDevices);
-                }
-            }
-            catch(Exception)
-            {
-                MessageBox.Show("Error while inserting into XML file.","Error!",MessageBoxButton.OK,MessageBoxImage.Error);
-            }
-
             Close();
             return;
         }
