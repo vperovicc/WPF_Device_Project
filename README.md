@@ -1,6 +1,10 @@
 This project, titled (Content Management System), is a Windows desktop application developed using C# and WPF (Windows Presentation Foundation). The primary goal of this application is to provide users with a convenient and intuitive platform for managing various types of content, such as devices, within an organization or personal environment.
 
 ![image](https://github.com/vperovicc/WPF_Device_Project/assets/80456478/aa4248c5-b5ea-42cb-bfa5-1b0b655f4c09)
+![image](https://github.com/vperovicc/WPF_Device_Project/assets/80456478/a6e7d6c4-699c-44c6-8d1e-c2525a5009bd)
+![image](https://github.com/vperovicc/WPF_Device_Project/assets/80456478/3fc29ec9-5252-45fa-a4df-53b1a5aa8beb)
+![image](https://github.com/vperovicc/WPF_Device_Project/assets/80456478/86e5b84b-1c8b-4979-a8b9-3c3b2a2c5c51)
+
 
 Key Features:
 
