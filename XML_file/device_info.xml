@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfDevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfDevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Device>
+    <Br>23</Br>
+    <Name>luda tastatura</Name>
+    <PicturePath>C:\Users\vukas\OneDrive\Радна површина\keyboard.png</PicturePath>
+    <RtfPath>../../rtfs/keyboardRTF.rtf</RtfPath>
+    <DateAdded>2024-03-26T12:35:25.2754575+01:00</DateAdded>
+  </Device>
+</ArrayOfDevice>

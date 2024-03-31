@@ -26,11 +26,13 @@ namespace Sistem_za_upravljanje_sadrzajima
         Device newDevice = new Device();
         private UseWindow useWindow;
         private UseWindow useWindPom;
+        ObservableCollection<Device> devs;
         string picPath;
         string passedDeviceRtfPath;
 
         private Device passedDevice;
 
+        //-----------------------LOADING THE TOOLBAR WITH ALL THE OPTIONS---------------------------
         public void loadToolbar()
         {
             FontComboBox.ItemsSource = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
@@ -43,10 +45,12 @@ namespace Sistem_za_upravljanje_sadrzajima
             cbFontSize.ItemsSource = fontSizes;
         }
 
-        public ChangeWindow(UseWindow useWindow)
+        //-----------------------LOADING THE WINDOW---------------------------
+        public ChangeWindow(UseWindow useWindow,ObservableCollection<Device> dev)
         {
-            InitializeComponent();
+            InitializeComponent();            
             this.useWindow = useWindow;
+            devs = dev;
             loadToolbar();
         }
         
@@ -56,6 +60,7 @@ namespace Sistem_za_upravljanje_sadrzajima
             loadToolbar();
         }
 
+        //-----------------------IF LOOGED AS ADMIN, EDITING MODE LOADED---------------------------
         public ChangeWindow(Device device, bool isEditing, UseWindow useWind)
         {
             InitializeComponent();
@@ -106,6 +111,7 @@ namespace Sistem_za_upravljanje_sadrzajima
             return;
         }
 
+        //-----------------------ON BROWSE PICTURE CLICK, OPEN THE FILE EXPLORER---------------------------
         private void btnPicture_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -124,6 +130,7 @@ namespace Sistem_za_upravljanje_sadrzajima
             imgPicture.Source = new BitmapImage(new Uri(picPath));
         }
 
+        //-----------------------SAVE BUTTON---------------------------
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             try {
@@ -136,13 +143,14 @@ namespace Sistem_za_upravljanje_sadrzajima
                         passedDevice.DateAdded = DateTime.Now;
                         passedDevice.PicturePath = picPath;
                         passedDeviceRtfPath = passedDevice.RtfPath;
-                        passedDevice.RtfPath =  updateRtfContent(passedDeviceRtfPath);
+                        passedDevice.RtfPath = updateRtfContent(passedDeviceRtfPath);
                         useWindPom.RefreshDataGrid();
                         MessageBox.Show("Success!", "Information!", MessageBoxButton.OK, MessageBoxImage.Information);
                         Close();
                     }
                     else
                     {
+                        bool flag=true;
                         newDevice.Br = Convert.ToInt32(tbNumber.Text);
                         newDevice.Name = tbName.Text;
                         newDevice.DateAdded = DateTime.Now;
@@ -150,9 +158,26 @@ namespace Sistem_za_upravljanje_sadrzajima
                         string nameOfRtf = tbName.Text + "RTF";
                         rtfCreation(nameOfRtf, rtbText);
                         newDevice.RtfPath = "../../rtfs/"+ nameOfRtf+".rtf";
-                        useWindow.devices.Add(newDevice);
-                        MessageBox.Show("Success!", "Information!", MessageBoxButton.OK, MessageBoxImage.Information);
-                        Close();
+
+                        foreach (Device d in devs)
+                        {
+                            if (d.Br==newDevice.Br)
+                            {
+                                MessageBox.Show("There is already a device with that serial number.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                flag = false;
+                            }
+                            else
+                            {
+                                flag = true;
+                            }
+                        }
+
+                        if(flag)
+                        {
+                            useWindow.devices.Add(newDevice);
+                            MessageBox.Show("Success!", "Information!", MessageBoxButton.OK, MessageBoxImage.Information);
+                            Close();
+                        }
                     }
                 }
                 picPath = "";
@@ -167,6 +192,7 @@ namespace Sistem_za_upravljanje_sadrzajima
             }
         }
 
+        //-----------------------RESETING OF THE FIELDS---------------------------
         private void ResetFields()
         {
             tbName.Clear();
@@ -176,11 +202,24 @@ namespace Sistem_za_upravljanje_sadrzajima
             rtbText.Selection.Text = "";
         }
 
+        //-----------------------NEEDED CONDITIONS TO ENABLE THE SAVE BUTTON---------------------------
         private bool security()
         {
             if (tbNumber.Text == string.Empty)
             {
                 MessageBox.Show("No input for number.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            if(Convert.ToInt32(tbNumber.Text)<0)
+            {
+                MessageBox.Show("Serial number can't be negative number!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            if(tbNumber.Text.All(char.IsDigit)!=true)
+            {
+                MessageBox.Show("Serial number can't be a charachter!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
@@ -203,10 +242,13 @@ namespace Sistem_za_upravljanje_sadrzajima
                 MessageBox.Show("No input for text.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
+
+
+
             return true;
         }
 
-
+        //-----------------------TOOLBAR TOOLS, BOLD, ITALIC, UNDERLINE---------------------------
         private void BoldToggleButton_Click(object sender, RoutedEventArgs e)
         {
             if (BoldToggleButton.IsChecked == true)
@@ -243,6 +285,7 @@ namespace Sistem_za_upravljanje_sadrzajima
             }
         }
 
+        //-----------------------TOOLBAR TOOLS FONT FAMILY, FONT SIZE, FONT COLOR---------------------------
         private void FontComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (FontComboBox.SelectedItem != null && !rtbText.Selection.IsEmpty)
@@ -271,6 +314,7 @@ namespace Sistem_za_upravljanje_sadrzajima
             }
         }
 
+        //-----------------------COUNTING THE WORDS IN RICH TEXT BOX---------------------------
         private void updateWordCounter(string text)
         {
             string pattern = @"\b\w+\b";
@@ -278,12 +322,15 @@ namespace Sistem_za_upravljanje_sadrzajima
 
             tbWordCounter.Text = "Word Count: " + matches.Count;
         }
+
+        //-----------------------DISPLAYING THE COUNTED WORDS---------------------------
         private void rtbText_TextChanged(object sender, TextChangedEventArgs e)
         {
             string text = new TextRange(rtbText.Document.ContentStart, rtbText.Document.ContentEnd).Text;
             updateWordCounter(text);
         }
 
+        //-----------------------WHEN NEW DEVICE IS ADDED, CREATING A NEW .RTF FILE---------------------------
         public void rtfCreation(string name, RichTextBox rtb)
         {
             try
@@ -321,6 +368,7 @@ namespace Sistem_za_upravljanje_sadrzajima
             }
         }
 
+        //-----------------------IF DEVICE ALREADY EXISTS AND THE RTF FILE ALREADY EXISTS, SAVING TO THAT FILE---------------------------
         private string updateRtfContent(string rtfFilePath)
         {
             if (File.Exists(rtfFilePath))
@@ -334,6 +382,7 @@ namespace Sistem_za_upravljanje_sadrzajima
             return rtfFilePath;
         }
 
+        //-----------------------TOOLBAR STUFF---------------------------
         private void rtbText_SelectionChanged(object sender, RoutedEventArgs e)
         {
 

@@ -27,6 +27,7 @@ namespace Sistem_za_upravljanje_sadrzajima
             InitializeComponent();
         }
 
+        //-----------------------LOADING THE WINDOW AND LOADING THE XML FILE WITH DEVICE THAT THE HYPERLINK IS BOUND TO---------------------------
         public InfoWindow(Device device)
         {
             InitializeComponent();
@@ -58,12 +59,14 @@ namespace Sistem_za_upravljanje_sadrzajima
             }
         }
 
+        //-----------------------ON CLICK CLOSE THE WINDOW---------------------------
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
             return;
         }
 
+        //-----------------------DISABLES THE ABILITY TO SELECT TEXT IN RICHTEXTBOX WHEN USER IS LOGGED---------------------------
         private void rtbText_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             e.Handled = true;

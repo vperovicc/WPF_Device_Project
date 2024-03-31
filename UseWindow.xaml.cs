@@ -29,10 +29,14 @@ namespace Sistem_za_upravljanje_sadrzajima
 
         List<User> users = new List<User>();
         User userPom = new User();
+
+        //-----------------------LOADING THE WINDOW---------------------------
         public UseWindow()
         {
             InitializeComponent();
         }
+
+        //-----------------------LOADING THE WINDOW AND LOADING THE DEVICES AND USERS FROM XML FILES---------------------------
         public UseWindow(User user)
         {
             InitializeComponent();
@@ -58,7 +62,7 @@ namespace Sistem_za_upravljanje_sadrzajima
                 userPom = users[1];
             }
         }
-
+        //-----------------------ON EXIT BUTTON CLICK SAVES THE CHANGES TO THE XML FILE AND CLOSES THE WINDOW---------------------------
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             MainWindow passMain = new MainWindow(devices);
@@ -84,11 +88,7 @@ namespace Sistem_za_upravljanje_sadrzajima
             this.DragMove();
         }
 
-        private void lvContent_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
+        //-----------------------CHECKING IF THE CHECKBOX IN THE DATAGRID IS CHECKED FOR DELETING---------------------------
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             CheckBox check = sender as CheckBox;
@@ -100,38 +100,42 @@ namespace Sistem_za_upravljanje_sadrzajima
             }
         }
 
+        //-----------------------DELETING THE DEVICE FROM THE DATAGRID, XML FILE, AND ALSO REMOVING THE .RTF FILE---------------------------
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var itemsToRemove = devices.Where(item => item.IsChecked).ToList();
-            foreach (var item in itemsToRemove)
+            if (checkDelete()==true)
             {
-                devices.Remove(item);
-            }
 
-            foreach (var item in devices.ToList())
-            {
-                if (item.IsChecked == true)
+                var itemsToRemove = devices.Where(item => item.IsChecked).ToList();
+                foreach (var item in itemsToRemove)
                 {
                     devices.Remove(item);
-                }
-
-                if (File.Exists(item.RtfPath))
-                {
-                    MessageBox.Show(item.RtfPath);
-                    File.Delete(item.RtfPath);
+                    if (File.Exists(item.RtfPath))
+                    {
+                        File.Delete(item.RtfPath);
+                    }
                 }
             }
 
-
+            //foreach (var item in devices.ToList())
+            //{
+            //    if (item.IsChecked == true)
+            //    {
+            //        devices.Remove(item);
+                    
+            //    }
+            //}
         }
 
+        //-----------------------OPENS THE ADD/CHANGE WINDOW---------------------------
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            ChangeWindow changeWindow = new ChangeWindow(this);
+            ChangeWindow changeWindow = new ChangeWindow(this,devices);
             changeWindow.Show();
             return;
         }
 
+        //-----------------------HYPERLINK CLICK BASED ON WHO IS LOGGED IN(ADMIN OR USER)---------------------------
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
             if (userPom.Role == UserRole.Admin)
@@ -150,10 +154,27 @@ namespace Sistem_za_upravljanje_sadrzajima
             }
         }
 
+        //-----------------------REFRESHES DATAGRID WHEN CHANGES ARE MADE---------------------------
         public void RefreshDataGrid()
         {
-            dgContent.DataContext = null; // Resetting the DataContext
-            dgContent.DataContext = devices; // Reassigning the ObservableCollection
+            dgContent.DataContext = null; 
+            dgContent.DataContext = devices;
+        }
+
+        //-----------------------DO YOU REALLY WANT TO DELETE IT------------------------------------
+
+        public bool checkDelete()
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to delete the device?","Information!",MessageBoxButton.YesNo,MessageBoxImage.Information);
+
+            if(result==MessageBoxResult.Yes)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

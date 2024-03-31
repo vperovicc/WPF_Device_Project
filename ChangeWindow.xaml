@@ -42,13 +42,13 @@
             </StatusBar>
             <ToolBar Margin="47,353,51,319">
                 <ComboBox x:Name="FontComboBox" Width="150" SelectionChanged="FontComboBox_SelectionChanged"/>
-                <ToggleButton x:Name="BoldToggleButton" Click="BoldToggleButton_Click">
+                <ToggleButton x:Name="BoldToggleButton" Click="BoldToggleButton_Click" Cursor="Hand">
                     <fa5:ImageAwesome Icon="Solid_Bold" Foreground="Black" Width="15" Height="15"/>
                 </ToggleButton>
-                <ToggleButton x:Name="ItalicToggleButton" Click="ItalicToggleButton_Click">
+                <ToggleButton x:Name="ItalicToggleButton" Click="ItalicToggleButton_Click" Cursor="Hand">
                     <fa5:ImageAwesome Icon="Solid_Italic" Foreground="Black" Width="15" Height="15"/>
                 </ToggleButton>
-                <ToggleButton x:Name="UnderlineToggleButton" Click="UnderlineToggleButton_Click">
+                <ToggleButton x:Name="UnderlineToggleButton" Click="UnderlineToggleButton_Click" Cursor="Hand">
                     <fa5:ImageAwesome Icon="Solid_Underline" Foreground="Black" Width="15" Height="15"/>
                 </ToggleButton>
 

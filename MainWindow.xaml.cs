@@ -27,11 +27,13 @@ namespace Sistem_za_upravljanje_sadrzajima
         ObservableCollection<Device> passedDevices;
         UseWindow useWindow = new UseWindow();
 
+        //-----------------------LOADING THE WINDOWS---------------------------
         public MainWindow()
         {
             InitializeComponent();
             XMLRead reader = new XMLRead();
             users = reader.readUser(@"../../XML_file/user_info.xml");
+            tbUsername.Focus();
         }
 
         public MainWindow(ObservableCollection<Device> devs)
@@ -40,14 +42,18 @@ namespace Sistem_za_upravljanje_sadrzajima
             XMLRead reader = new XMLRead();
             users = reader.readUser(@"../../XML_file/user_info.xml");
             passedDevices = devs;
+            tbUsername.Focus();
         }
 
+
+        //-----------------------EXIT BUTTON(CLOSE THE APP)---------------------------
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             Close();
             return;
         }
 
+        //-----------------------LOGIN ACTION---------------------------
         private void btnLogIn_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -80,6 +86,7 @@ namespace Sistem_za_upravljanje_sadrzajima
                     {
                         UseWindow newWindow = new UseWindow(users[0]);
                         newWindow.ShowDialog();
+                        Close();
                     }
                 }
                 else if (tbUsername.Text == users[1].Username)
@@ -94,6 +101,7 @@ namespace Sistem_za_upravljanje_sadrzajima
                     {
                         UseWindow newWindow = new UseWindow(users[1]);
                         newWindow.ShowDialog();
+                        Close();
                     }
                 }
                 else
@@ -105,8 +113,6 @@ namespace Sistem_za_upravljanje_sadrzajima
 
                 tbUsername.Clear();
                 pbPassword.Clear();
-                Close();
-                return;
             }
             catch(Exception ex)
             {
@@ -117,6 +123,23 @@ namespace Sistem_za_upravljanje_sadrzajima
         private void LoginPath_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        //-----------------------ENABLES SO WHEN I PRESS ENTER ON KEYBOARD THE LOGIN BUTTON IS INITIATED---------------------------
+        private void tbUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnLogIn_Click(sender, new RoutedEventArgs());
+            }
+        }
+
+        private void pbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnLogIn_Click(sender, new RoutedEventArgs());
+            }
         }
     }
 
