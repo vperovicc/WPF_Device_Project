@@ -3,6 +3,7 @@ This project, titled (Content Management System), is a Windows desktop applicati
 Key Features:
 
 User Authentication: The application supports user authentication with different roles (Admin and Visitor), ensuring secure access to the system.
+
 Device Management: Users can add, view, edit, and delete devices through an intuitive user interface. Devices are displayed in a DataGrid, providing easy access to device information.
 Rich Text Editing: The application includes a RichTextBox component that allows users to edit content with formatting options such as font styles, colors, and sizes.
 Content Storage: Device information and content are stored persistently using XML files. Each device is associated with an RTF (Rich Text Format) file for storing detailed information.
